@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     public void PoPr()
     {
-        transform.parent.position = new Vector3(Random.Range(-10, 10),0, Random.Range(-10, 10));
+        transform.parent.position = new Vector3(Random.Range(-10, 10),0 , Random.Range(-10, 10));
         transform.parent.DORotate(transform.eulerAngles + new Vector3(Random.Range(-1, 1) * speedPr, Random.Range(-1, 1) * speedPr, 0), 3, RotateMode.FastBeyond360).SetLoops(-1, loopType: LoopType.Incremental).SetEase(ease: Ease.Linear);
     }
 }
