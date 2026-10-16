@@ -1,25 +1,26 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]private float speed = 500;
+    [SerializeField] private float speedCH = 200;
+    [SerializeField] private float speedPr = 200;
 
-    private Vector3 Dir;
-    private Rigidbody rb;
-
-    private void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        RoCh();
+        PoPr();
     }
 
-    private void FixedUpdate()
+    public void RoCh()
     {
-        transform.Rotate(speed * Time.deltaTime*2,0, speed * Time.deltaTime);
 
+        transform.DORotate(transform.eulerAngles + new Vector3(Random.Range(-10, 10)*speedCH,  Random.Range(-10, 10)*speedCH, 0),3,RotateMode.FastBeyond360).SetLoops(-1,loopType:LoopType.Incremental).SetEase(ease:Ease.Linear);
     }
 
-    private void Random()
+    public void PoPr()
     {
-        
+        transform.parent.position = new Vector3(Random.Range(-10, 10),0, Random.Range(-10, 10));
+        transform.parent.DORotate(transform.eulerAngles + new Vector3(Random.Range(-1, 1) * speedPr, Random.Range(-1, 1) * speedPr, 0), 3, RotateMode.FastBeyond360).SetLoops(-1, loopType: LoopType.Incremental).SetEase(ease: Ease.Linear);
     }
 }
