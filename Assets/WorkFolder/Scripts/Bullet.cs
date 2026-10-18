@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace WorkFolder.Scripts
@@ -13,6 +14,21 @@ namespace WorkFolder.Scripts
         {
             _rigid = GetComponent<Rigidbody>();
             _rigid.linearVelocity = transform.forward * speed;
+            StartCoroutine(DestroyRoutine());
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(1);
+            }
+        }
+
+        private IEnumerator DestroyRoutine()
+        {
+            yield return new WaitForSeconds(10f);
+            Destroy(gameObject);
         }
     }
 }

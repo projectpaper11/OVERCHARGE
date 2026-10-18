@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +11,14 @@ namespace WorkFolder.Scripts
         [SerializeField] private float fireRate = 0.15f;
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private MMF_Player feedback;
+        [SerializeField] private MMF_Player strikeFeedback;
+        [SerializeField] private PlayerMovement moveCompo;
         private float _lastAttackTime;
+        private float _maxRange = 7f;
+
+
+
+        private bool _charging;
         private void Update()
         {
             if (Mouse.current.leftButton.isPressed)
@@ -22,6 +30,42 @@ namespace WorkFolder.Scripts
                     feedback.PlayFeedbacks();
                 }
             }
+
+            if (Mouse.current.rightButton.isPressed)
+            {
+                _charging = true;
+            }
+            else if(_charging)
+            {
+                _charging = false;
+                Strike();
+            }
+        }
+
+        private void Strike()
+        {
+            moveCompo.Stop();
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Vector3 hit = ray.GetPoint(9999f);
+            hit.y = transform.position.y;
+            Vector3 dir = (hit - transform.position).normalized;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10f * Time.deltaTime);
+            float distance = (hit - transform.position).magnitude;
+
+            if (distance > _maxRange)
+            {
+                distance = _maxRange;
+            }
+            
+            moveCompo.AddForce(dir * distance, ForceMode.Impulse);
+            strikeFeedback.PlayFeedbacks();
+            StartCoroutine(ReturnMoveRoutine());
+        }
+
+        private IEnumerator ReturnMoveRoutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            moveCompo.ResumeMove();
         }
     }
 }
