@@ -12,9 +12,10 @@ namespace WorkFolder.Scripts
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private MMF_Player feedback;
         [SerializeField] private MMF_Player strikeFeedback;
+        [SerializeField] private MMF_Player strikeFinishFeedback;
         [SerializeField] private PlayerMovement moveCompo;
         private float _lastAttackTime;
-        private float _maxRange = 7f;
+        private float _maxRange = 10f;
 
 
 
@@ -46,12 +47,14 @@ namespace WorkFolder.Scripts
         {
             moveCompo.Stop();
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            Vector3 hit = ray.GetPoint(9999f);
+            Vector3 hit = ray.GetPoint(15);
             hit.y = transform.position.y;
             Vector3 dir = (hit - transform.position).normalized;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10f * Time.deltaTime);
             float distance = (hit - transform.position).magnitude;
-
+            
+            Debug.Log(hit);
+            Debug.Log(distance);
             if (distance > _maxRange)
             {
                 distance = _maxRange;
@@ -66,6 +69,7 @@ namespace WorkFolder.Scripts
         {
             yield return new WaitForSeconds(0.5f);
             moveCompo.ResumeMove();
+            strikeFinishFeedback.PlayFeedbacks();
         }
     }
 }
