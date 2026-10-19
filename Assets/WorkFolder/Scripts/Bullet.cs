@@ -21,6 +21,7 @@ namespace WorkFolder.Scripts
         {
             if (other.TryGetComponent(out IDamageable damageable))
             {
+                Destroy(gameObject);
                 damageable.TakeDamage(1);
             }
         }

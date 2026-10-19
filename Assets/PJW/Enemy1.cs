@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using System.Net.NetworkInformation;
 using UnityEngine;
@@ -25,5 +26,10 @@ public class Enemy1 : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+    }
+
+    private void OnDestroy()
+    {
+        this.DOKill();
     }
 }
