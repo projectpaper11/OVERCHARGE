@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
 
     public void RoCh()
     {
-
         transform.DORotate(transform.eulerAngles + new Vector3(Random.Range(-10, 10)*speedCH,  Random.Range(-10, 10)*speedCH, 0),3,RotateMode.FastBeyond360).SetLoops(-1,loopType:LoopType.Incremental).SetEase(ease:Ease.Linear);
     }
 
