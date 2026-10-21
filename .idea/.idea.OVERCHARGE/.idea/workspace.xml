@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="539a56e1-1191-4a6c-8535-27d65ac18cdb" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/EnemySpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/EnemySpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeBar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeBar.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeSystem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OVERCHARGE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OVERCHARGE/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PJW/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PJW/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PJW/Enemy1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PJW/Enemy1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PJW/PJW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PJW/PJW.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WorkFolder/Prefabs/Cylinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorkFolder/Prefabs/Cylinder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WorkFolder/Prefabs/GameObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorkFolder/Prefabs/GameObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/PlayerAttackModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorkFolder/Scripts/PlayerAttackModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/YSM/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YSM/New Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/YSM/Scipts/UISilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YSM/Scipts/UISilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +31,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/ChargeSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/HealthSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/WorkFolder/Scripts/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,12 +49,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;PAP&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "PAP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.20f1\Editor\Unity.exe" />
@@ -87,12 +102,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="ee4593ac-89e9-445e-87b0-28d5b08e349f" name="변경" comment="" />
+      <changelist id="539a56e1-1191-4a6c-8535-27d65ac18cdb" name="변경" comment="" />
       <created>1792385875337</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1792385875337</updated>
       <workItem from="1792385878264" duration="2660000" />
+      <workItem from="1792558423874" duration="2227000" />
     </task>
     <servers />
   </component>

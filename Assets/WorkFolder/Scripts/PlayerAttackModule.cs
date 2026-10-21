@@ -14,6 +14,7 @@ namespace WorkFolder.Scripts
         [SerializeField] private MMF_Player strikeFeedback;
         [SerializeField] private MMF_Player strikeFinishFeedback;
         [SerializeField] private PlayerMovement moveCompo;
+        [SerializeField] private ChargeSystem system;
         private float _lastAttackTime;
         private float _maxRange = 10f;
 
@@ -35,10 +36,12 @@ namespace WorkFolder.Scripts
             if (Mouse.current.rightButton.isPressed)
             {
                 _charging = true;
+                system.Charge(5 * Time.deltaTime);
             }
             else if(_charging)
             {
                 _charging = false;
+                system.Reset();
                 Strike();
             }
         }
@@ -53,8 +56,6 @@ namespace WorkFolder.Scripts
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10f * Time.deltaTime);
             float distance = (hit - transform.position).magnitude;
             
-            Debug.Log(hit);
-            Debug.Log(distance);
             if (distance > _maxRange)
             {
                 distance = _maxRange;
@@ -67,9 +68,20 @@ namespace WorkFolder.Scripts
 
         private IEnumerator ReturnMoveRoutine()
         {
+            system.SetMuteki(true);
             yield return new WaitForSeconds(0.5f);
+            Collider[] cols = Physics.OverlapSphere(transform.position, 15f, LayerMask.GetMask("Enemy"));
+            foreach (Collider col in cols)
+            {
+                Debug.Log(col.name);
+                if (col.TryGetComponent(out HealthSystem charge) && charge != null)
+                {
+                    charge.TakeDamage(999999);
+                } 
+            }
             moveCompo.ResumeMove();
             strikeFinishFeedback.PlayFeedbacks();
+            system.SetMuteki(false);
         }
     }
 }

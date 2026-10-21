@@ -22,7 +22,7 @@ public class UISilder : MonoBehaviour
 
     public void UpdateText()
     {
-        sliderValue = Mathf.RoundToInt(slider.value * 100);
+        sliderValue = Mathf.RoundToInt(slider.value);
         text.text = sliderValue.ToString() + "%";
     }
 }

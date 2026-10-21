@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using WorkFolder.Scripts;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -30,6 +31,17 @@ public class Enemy : MonoBehaviour
         transform.DOMove(transform.position +
                          new Vector3(Random.Range(-2f, 2f) * speedCH, 0, Random.Range(-2f, 2f) * speedCH),Random.Range(0.5f,1f)).OnComplete(() => MoveRando());
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out ChargeSystem charge))
+        {
+            Destroy(gameObject);
+            charge.TakeDamage();
+        }
+    }
+    
+    
 
     private void OnDestroy()
     {

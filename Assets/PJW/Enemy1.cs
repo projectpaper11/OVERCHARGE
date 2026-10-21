@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using System.Net.NetworkInformation;
 using UnityEngine;
+using WorkFolder.Scripts;
 
 public class Enemy1 : MonoBehaviour
 {
@@ -26,8 +27,13 @@ public class Enemy1 : MonoBehaviour
         transform.position += dir * (5f * Time.deltaTime);
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerEnter(Collider other)
     {
+        if (other.TryGetComponent(out ChargeSystem charge))
+        {
+            Destroy(gameObject);
+            charge.TakeDamage();
+        }
     }
 
     private void OnDestroy()
