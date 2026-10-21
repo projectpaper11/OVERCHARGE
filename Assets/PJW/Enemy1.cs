@@ -12,7 +12,7 @@ public class Enemy1 : MonoBehaviour
     }
     private void Update()
     {
-     if (targetTrm != null)
+        if (targetTrm != null)
         {
             ChasePlayer();
         }
