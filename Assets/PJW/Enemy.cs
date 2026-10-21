@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        RoCh();
         PoPr();
     }
 
@@ -29,7 +28,7 @@ public class Enemy : MonoBehaviour
     private void MoveRando()
     {
         transform.DOMove(transform.position +
-                         new Vector3(Random.Range(-1f, 1f) * speedCH, 0, Random.Range(-1f, 1f) * speedCH),Random.Range(0.5f,1f)).OnComplete(() => MoveRando());
+                         new Vector3(Random.Range(-2f, 2f) * speedCH, 0, Random.Range(-2f, 2f) * speedCH),Random.Range(0.5f,1f)).OnComplete(() => MoveRando());
     }
 
     private void OnDestroy()

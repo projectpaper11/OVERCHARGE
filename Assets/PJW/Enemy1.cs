@@ -21,7 +21,9 @@ public class Enemy1 : MonoBehaviour
 
     public void ChasePlayer()
     {
-        transform.DOMove(targetTrm.position, 5f).SetEase(Ease.InOutBounce);
+        Vector3 dir = targetTrm.position - transform.position;
+        dir.Normalize();
+        transform.position += dir * (5f * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
