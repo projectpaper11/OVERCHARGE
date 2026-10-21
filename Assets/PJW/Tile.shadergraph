@@ -5,6 +5,9 @@
     "m_Properties": [
         {
             "m_Id": "b3e5f9a71a614ff4af33c473c4834bba"
+        },
+        {
+            "m_Id": "1d4b71fdb9c24395b2f404f96e01e9d4"
         }
     ],
     "m_Keywords": [],
@@ -77,6 +80,9 @@
         },
         {
             "m_Id": "0df62438bf9c41668cba23ec3041db39"
+        },
+        {
+            "m_Id": "8c0b4a174aec4995abb7efbe2680c639"
         }
     ],
     "m_GroupDatas": [],
@@ -428,6 +434,41 @@
     "m_FunctionSource": "",
     "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "float N = max(Scale, 0.001);\r\nfloat2 p = UV;\r\n\r\np.x *= 0.86602;\r\n\r\nfloat isTwo = fmod(floor(p.y * N), 2.0);\r\nfloat isOne = 1.0 - isTwo;\r\n\r\np *= N;\r\np.x += isTwo * 0.5;\r\n\r\nfloat2 p_index = floor(p);\r\nfloat2 p_rect = frac(p);\r\np = p_rect;\r\n\r\nfloat xSign = sign(p.x - 0.5);\r\np.x = abs(0.5 - p.x);\r\n\r\nfloat isInTriangle = step(p.x * 2.0 + p.y, 1.0);\r\nfloat isOutTriangle = 1.0 - isInTriangle;\r\n\r\nfloat w1 = max(\r\n    p.x * 2.0 + p.y,\r\n    1.0 - p.y * 1.5\r\n);\r\n\r\np = float2(0.5, 1.0) - p;\r\n\r\nfloat w2 = max(\r\n    p.x * 2.0 + p.y,\r\n    1.0 - p.y * 1.5\r\n);\r\n\r\nTriangle = lerp(\r\n    1.0 - w2,\r\n    1.0 - w1,\r\n    isInTriangle\r\n) / 0.6;\r\n\r\nfloat2 triangleIndex = p_index + float2(\r\n    isOutTriangle * xSign * 0.5 + isOne * 0.5,\r\n    0.0\r\n);\r\n\r\nTrianglePosition = triangleIndex / N;"
+}
+
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "1d4b71fdb9c24395b2f404f96e01e9d4",
+    "m_Guid": {
+        "m_GuidSerialized": "25cd5661-0fd4-4a3a-835d-206ed3d23999"
+    },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
+    "m_Name": "Color",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Color",
+    "m_DefaultReferenceName": "_Color",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": true,
+    "hlslDeclarationOverride": 2,
+    "m_Hidden": false,
+    "m_PerRendererData": false,
+    "m_customAttributes": [],
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 1
 }
 
 {
@@ -928,6 +969,9 @@
     "m_ChildObjectList": [
         {
             "m_Id": "b3e5f9a71a614ff4af33c473c4834bba"
+        },
+        {
+            "m_Id": "1d4b71fdb9c24395b2f404f96e01e9d4"
         }
     ]
 }
@@ -955,6 +999,31 @@
         "w": 0.0
     },
     "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "5699dda3b29843869a3abba6b0b8db39",
+    "m_Id": 0,
+    "m_DisplayName": "Color",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -1337,6 +1406,42 @@
     },
     "m_Labels": [],
     "m_Space": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "8c0b4a174aec4995abb7efbe2680c639",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -324.9554748535156,
+            "y": 55.065670013427737,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "5699dda3b29843869a3abba6b0b8db39"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "1d4b71fdb9c24395b2f404f96e01e9d4"
+    }
 }
 
 {
