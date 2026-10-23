@@ -24,7 +24,7 @@ public class Enemy1 : MonoBehaviour
     {
         Vector3 dir = targetTrm.position - transform.position;
         dir.Normalize();
-        transform.position += dir * (5f * Time.deltaTime);
+        transform.position += dir * (3f * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

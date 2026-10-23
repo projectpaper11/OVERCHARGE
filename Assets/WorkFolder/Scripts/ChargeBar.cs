@@ -10,6 +10,8 @@ namespace WorkFolder.Scripts
     {
         public static ChargeBar instance;
         [SerializeField] private Slider slider;
+        [SerializeField] private int score;
+        [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI percentText;
 
         private void Awake() => instance = this;
@@ -22,6 +24,12 @@ namespace WorkFolder.Scripts
         public void ChangeCharge(float value)
         {
             slider.DOValue(value, 0.1f);
+        }
+
+        public void ChangeScore(int value)
+        {
+            score += value;
+            scoreText.text = score.ToString();
         }
     }
 }

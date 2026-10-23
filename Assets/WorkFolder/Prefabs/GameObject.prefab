@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0247d77f47f745189a91f45104f0546c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorkFolder.Scripts.HealthSystem
-  maxHealth: 1
+  maxHealth: 5

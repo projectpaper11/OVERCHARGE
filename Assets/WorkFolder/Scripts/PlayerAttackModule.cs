@@ -13,6 +13,7 @@ namespace WorkFolder.Scripts
         [SerializeField] private MMF_Player feedback;
         [SerializeField] private MMF_Player strikeFeedback;
         [SerializeField] private MMF_Player strikeFinishFeedback;
+        [SerializeField] private ParticleSystem chargeEffect;
         [SerializeField] private PlayerMovement moveCompo;
         [SerializeField] private ChargeSystem system;
         private float _lastAttackTime;
@@ -33,17 +34,20 @@ namespace WorkFolder.Scripts
                 }
             }
 
-            if (Mouse.current.rightButton.isPressed)
+            if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 _charging = true;
-                system.Charge(5 * Time.deltaTime);
+                chargeEffect.Play();
             }
-            else if(_charging)
+            else if(_charging && Mouse.current.rightButton.wasReleasedThisFrame)
             {
                 _charging = false;
-                system.Reset();
+                chargeEffect.Stop();
                 Strike();
             }
+            
+            if (_charging)
+                system.Charge(15 * Time.deltaTime);
         }
 
         private void Strike()
@@ -70,7 +74,7 @@ namespace WorkFolder.Scripts
         {
             system.SetMuteki(true);
             yield return new WaitForSeconds(0.5f);
-            Collider[] cols = Physics.OverlapSphere(transform.position, 15f, LayerMask.GetMask("Enemy"));
+            Collider[] cols = Physics.OverlapSphere(transform.position, 20f * (system.currentCharge/100f), LayerMask.GetMask("Enemy"));
             foreach (Collider col in cols)
             {
                 Debug.Log(col.name);
@@ -79,6 +83,7 @@ namespace WorkFolder.Scripts
                     charge.TakeDamage(999999);
                 } 
             }
+            system.Reset();
             moveCompo.ResumeMove();
             strikeFinishFeedback.PlayFeedbacks();
             system.SetMuteki(false);

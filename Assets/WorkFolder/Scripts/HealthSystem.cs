@@ -19,6 +19,7 @@ namespace WorkFolder.Scripts
 
             if (_currentHealth <= 0)
             {
+                ChargeBar.instance.ChangeScore(10);
                 Destroy(gameObject);
             }
         }

@@ -4,7 +4,7 @@ namespace WorkFolder.Scripts
 {
     public class ChargeSystem : MonoBehaviour
     {
-        private float currentCharge = 0;
+        public float currentCharge = 0;
         private bool muteki = false;
         public void TakeDamage()
         {
