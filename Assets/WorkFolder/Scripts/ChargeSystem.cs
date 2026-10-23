@@ -11,6 +11,10 @@ namespace WorkFolder.Scripts
             if (muteki) return;
             currentCharge += 25;
             ChargeBar.instance.ChangeCharge((int)currentCharge);
+            if (currentCharge >= 100)
+            {
+                Debug.Log("Dead");
+            }
         }
 
         public void Charge(float value)
