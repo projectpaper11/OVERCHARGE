@@ -13,7 +13,7 @@ namespace WorkFolder.Scripts
             ChargeBar.instance.ChangeCharge((int)currentCharge);
             if (currentCharge >= 100)
             {
-                Debug.Log("Dead");
+                GameManager.Instance.GameOver();
             }
         }
 

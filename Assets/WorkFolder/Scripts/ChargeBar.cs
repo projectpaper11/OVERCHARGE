@@ -14,6 +14,8 @@ namespace WorkFolder.Scripts
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI percentText;
 
+        public int Score => score;
+
         private void Awake() => instance = this;
 
         private void Start()

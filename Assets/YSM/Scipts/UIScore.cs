@@ -19,6 +19,9 @@ public class UIScore : MonoBehaviour
 
     public void UpdateScoreText()
     {
+        // 부모 OnEnable에서 Awake보다 먼저 불릴 수 있다
+        if (_scoreText == null)
+            _scoreText = GetComponent<TextMeshProUGUI>();
         _scoreText.text = "Score: " + _score.ToString();
     }
 }
