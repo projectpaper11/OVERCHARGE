@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIScore : MonoBehaviour
 {
-    private int _score = 0;
+    public int _score = 0;
     private TextMeshProUGUI _scoreText;
 
     private void Awake()
@@ -18,6 +19,6 @@ public class UIScore : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        _scoreText.text = _score.ToString();
+        _scoreText.text = "Score: " + _score.ToString();
     }
 }
