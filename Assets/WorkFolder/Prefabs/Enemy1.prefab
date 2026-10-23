@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0247d77f47f745189a91f45104f0546c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorkFolder.Scripts.HealthSystem
+  deadEffect: {fileID: 7837068940692542336, guid: 1a20ec63cdd36fa47bc25363fddecbd3, type: 3}
   maxHealth: 2
 --- !u!114 &-5605937776781574957
 MonoBehaviour:

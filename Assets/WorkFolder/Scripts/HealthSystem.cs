@@ -5,6 +5,7 @@ namespace WorkFolder.Scripts
 {
     public class HealthSystem : MonoBehaviour,IDamageable
     {
+        [SerializeField] private ParticleSystem deadEffect;
         [SerializeField] private float maxHealth;
         private float _currentHealth;
 
@@ -20,6 +21,8 @@ namespace WorkFolder.Scripts
             if (_currentHealth <= 0)
             {
                 ChargeBar.instance.ChangeScore(10);
+                ParticleSystem ps = Instantiate(deadEffect, transform.position, transform.rotation);
+                ps.Play();
                 Destroy(gameObject);
             }
         }
